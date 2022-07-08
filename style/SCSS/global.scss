@@ -1,0 +1,334 @@
+$primaryColor: #8B0000FF;
+$secondaryColor: #fff;
+$optionalColor: #000000FF;
+$calculateHeight: calc(100vh - 68px);
+$textShadow: 1px 0 1px $secondaryColor, 0 1px 1px $secondaryColor, -1px 0 1px $secondaryColor, 0 -1px 1px $secondaryColor;
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background: url("../../img/lucky38.jpg") no-repeat center / cover;
+  min-height: 100vh;
+}
+
+.nav-hamburger, .nav-close, .dropdown-content, .navbar-adaptive, .balance-invisible, .nav-hamburger-invisible, .dropdown > div:last-child, .games-invisible{
+  display: none;
+}
+
+.row {
+  margin: 0;
+}
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  background-color: $primaryColor;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  box-shadow: 0 3px 5px $optionalColor;
+
+  nav{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 0;
+    max-width: 1920px;
+  }
+}
+
+.nav-items{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin-right: 5px;
+  a{
+    width: 150px;
+    height: 44px;
+    font-size: 28px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    margin-right: 5px;
+  }
+
+  a:hover{
+    color: $primaryColor;
+    border: 2px solid $primaryColor;
+    background-color: $secondaryColor;
+    transition: 0.3s;
+  }
+
+  .dropdown{
+    display: flex;
+    align-items: center;
+
+    .dropdown-button:hover > img:last-child{
+      display: block;
+      width: 20px;
+      transition: 0.3s;
+    }
+
+    .dropdown-button:hover{
+      color: $primaryColor;
+      border: 2px solid $primaryColor;
+      background-color: $secondaryColor;
+      transition: 0.3s;
+    }
+
+    .dropdown-button:hover > button{
+      color: $primaryColor;
+      transition: 0.3s;
+    }
+
+    .dropdown-button:hover > img:nth-child(2){
+      display: none;
+      transition: 0.3s;
+    }
+
+    .dropdown-button{
+      width: 150px;
+      height: 44px;
+      background-color: transparent;
+      border: 2px solid $secondaryColor;
+      border-radius: 5px;
+      font-size: 28px;
+      color: $secondaryColor;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      cursor: pointer;
+
+      button{
+        height: 44px;
+        background-color: transparent;
+        border: none;
+        border-radius: 5px;
+        font-size: 28px;
+        color: $secondaryColor;
+      }
+
+      img{
+        width: 20px;
+      }
+
+      img:last-child{
+        display: none;
+      }
+    }
+  }
+}
+
+.background{
+  background: url("../../img/cap.png");
+  width: 1000px;
+  height: 1000px;
+  padding-top: 60px;
+}
+
+.dropdown:hover > .dropdown-content{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 44px;
+  width: 150px;
+
+  a{
+    background-color: $primaryColor;
+    border: 1px solid $secondaryColor;
+    border-radius: 5px;
+    color: $secondaryColor;
+    padding: 2px 0;
+  }
+
+  a:hover{
+    border: 1px solid $primaryColor;
+    color: $primaryColor;
+    background-color: $secondaryColor;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+}
+
+.balance{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+  p{
+    margin: 0 5px 0 0;
+    font-size: 28px;
+    color: $secondaryColor;
+  }
+
+  img{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  img{
+    width: 200px;
+    position: absolute;
+    height: 200px;
+    top: -90px;
+  }
+}
+
+main{
+  min-height: $calculateHeight;
+  padding-top: 140px;
+}
+
+footer{
+  background-color: $primaryColor;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 -3px 5px $optionalColor;
+
+  p{
+    margin: 0;
+    color: $secondaryColor;
+  }
+
+  a{
+    text-decoration: none;
+    color: $secondaryColor;
+    transition: 0.2s;
+  }
+
+  a:hover{
+    color: $secondaryColor;
+    text-shadow: $textShadow;
+    transition: 0.2s;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo{
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 5px 10px 5px;
+  }
+
+  .hide-overflow{
+    overflow: hidden;
+  }
+
+  .nav-hamburger{
+    display: block;
+
+    button{
+      background-color: transparent;
+      border: none;
+    }
+
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .nav-items{
+    display: none;
+  }
+
+  .nav-items-adaptive{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+
+    a{
+      width: 100%;
+      border-radius: 0;
+      margin: 0 0 10px 0;
+      border: none;
+      border-bottom: 1px solid $secondaryColor;
+    }
+
+    a:hover{
+      border: none;
+      border-bottom: 1px solid $primaryColor;
+      transition: 0.3s;
+    }
+
+    .dropdown{
+      display: none;
+    }
+
+    .games-visible{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+      h2{
+        width: 135px;
+        font-size: 36px;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        color: $secondaryColor;
+        margin-bottom: 10px;
+        border-bottom: 2px solid $secondaryColor;
+      }
+
+      a{
+        margin: 0 0 5px 0;
+      }
+    }
+  }
+
+  .navbar-adaptive{
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    animation: 0.5s navbar;
+
+  }
+
+  .nav-hamburger-invisible, .balance-invisible{
+    display: none;
+  }
+
+  .nav-close-visible{
+    display: block;
+    padding: 5px 0 10px 5px;
+
+    button{
+      background-color: transparent;
+      border: none;
+    }
+
+    img{
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+@keyframes navbar {
+  from {top: -100%;}
+  to {top: 0;}
+}
