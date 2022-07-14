@@ -1,5 +1,8 @@
 const navHamburgerBtn = document.querySelector('.nav-hamburger > button');
 const navCloseBtn = document.querySelector('.nav-close > button');
+let _money = 100;
+
+import {createElementFromHTML} from "./quiz.js";
 
 function onNavBtnClick(){
     document.querySelector('.navbar').classList.toggle('navbar-adaptive');
@@ -14,3 +17,30 @@ function onNavBtnClick(){
 
 navHamburgerBtn.addEventListener('click', onNavBtnClick);
 navCloseBtn.addEventListener('click', onNavBtnClick);
+
+const renderMoney = (money) => {
+    document.querySelector('.money').innerHTML = '';
+    const str = getMoneyTemplate(money);
+    const elem = createElementFromHTML(str);
+    document.querySelector('.money').append(elem);
+}
+
+const getMoneyTemplate = (money) => `
+<p class="money">${money}</p>
+`
+
+export const moneyCalculation = (calc) => {
+    const money = setMoney(getMoney() + calc);
+    renderMoney(money);
+}
+
+const getMoney = () => {
+    return _money;
+}
+
+const setMoney = (amount) => {
+    _money = amount;
+    return _money;
+}
+
+
