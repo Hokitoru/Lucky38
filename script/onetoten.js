@@ -63,7 +63,6 @@ const renderCheck = (userBet, userInput, randomNumber) => {
     const elem = createElementFromHTML(str);
     document.querySelector('.check').append(elem);
     timeout = setTimeout(refreshCheck, 2000);
-    console.log(timeout);
 }
 
 const refreshCheck = () => {
