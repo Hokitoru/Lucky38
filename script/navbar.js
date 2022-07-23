@@ -1,8 +1,6 @@
+import {createElementFromHTML} from './global.js'
 const navHamburgerBtn = document.querySelector('.nav-hamburger > button');
 const navCloseBtn = document.querySelector('.nav-close > button');
-let _money = 100;
-
-import {createElementFromHTML} from "./quiz.js";
 
 function onNavBtnClick(){
     document.querySelector('.navbar').classList.toggle('navbar-adaptive');
@@ -18,7 +16,7 @@ function onNavBtnClick(){
 navHamburgerBtn.addEventListener('click', onNavBtnClick);
 navCloseBtn.addEventListener('click', onNavBtnClick);
 
-const renderMoney = (money) => {
+export const renderMoney = (money) => {
     document.querySelector('.money').innerHTML = '';
     const str = getMoneyTemplate(money);
     const elem = createElementFromHTML(str);
@@ -30,17 +28,22 @@ const getMoneyTemplate = (money) => `
 `
 
 export const moneyCalculation = (calc) => {
+    console.log(calc);
     const money = setMoney(getMoney() + calc);
     renderMoney(money);
 }
 
-const getMoney = () => {
-    return _money;
+export const getMoney = () => {
+    return +localStorage.getItem('money');
 }
 
 const setMoney = (amount) => {
-    _money = amount;
-    return _money;
+    localStorage.setItem('money', amount);
+    return amount;
 }
 
+if(localStorage.getItem('money') === null){
+    localStorage.setItem('money', '100');
+}
 
+moneyCalculation(0);

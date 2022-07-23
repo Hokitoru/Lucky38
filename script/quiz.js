@@ -1,4 +1,5 @@
 import {moneyCalculation} from "./navbar.js";
+import {createElementFromHTML} from './global.js'
 const acceptAnswerInput = document.querySelector('.user-answer');
 const acceptAnswerBtn = document.querySelector('.accept-answer');
 const nextQuestionBtn = document.querySelector('.next-question');
@@ -6,11 +7,11 @@ let question;
 let answer;
 
 async function main(){
-    const response = await fetch('http://jservice.io/api/random?count=1');
+    const response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
     const result = await response.json();
 
-    question = result[0].question;
-    answer = result[0].answer.replace(/<\/*i>/gi,"");
+    question = result.results[0].question;
+    answer = result.results[0].correct_answer.replace(/<\/*i>/gi,"");
 
     renderQuestion(question);
 }
@@ -30,14 +31,9 @@ acceptAnswerInput.addEventListener('keypress', (keyboard) =>{
 
 nextQuestionBtn.addEventListener('click', () => {
     document.querySelector('.check-answer').innerHTML = '';
+    document.querySelector('.user-answer').value = '';
     main();
 })
-
-export const createElementFromHTML = htmlString => {
-    const div = document.createElement('div');
-    div.innerHTML = htmlString.trim();
-    return div.firstChild;
-};
 
 const createTrueCheckTemplate = () => `
 <p class="check-answer">Correct answer! You get 50 caps!</p>
@@ -62,6 +58,9 @@ const renderCheck = (answer) => {
     let str;
     if(userAnswer.toLowerCase().replace(/[\s()'"/.,-=+]/g, "") === answer.toLowerCase().replace(/[\s()'"/.,-=+]/g, "")){
         str = createTrueCheckTemplate();
+        const audio = new Audio();
+        audio.src = '../audio/win.mp3'
+        audio.autoplay = true;
         moneyCalculation(50);
     } else if(answer === ""){
         str = createSecondCheckTemplate();

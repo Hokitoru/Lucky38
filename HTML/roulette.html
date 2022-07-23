@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/CSS/global.css">
-    <link rel="stylesheet" href="../style/CSS/main.css">
+    <link rel="stylesheet" href="../style/CSS/roulette.css">
     <title>Lucky38</title>
 </head>
 <body>
@@ -51,15 +51,57 @@
     </nav>
 </div>
 <main>
-    <div class="welcome">
-        <h1>Welcome!</h1>
-        <p>This project is a casino based on the game Fallout: New Vegas.</p>
-        <p>Site Features:</p>
-        <ul>
-            <li>Quiz - here you can earn caps (currency) for correct answers</li>
-            <li>1 to 10 is a game where you need to guess a number, getting the opportunity to increase your winnings 10 times from the bet</li>
-            <li>Roulette - standard roulette with 3 colors and numbers</li>
-        </ul>
+    <div class="roulette">
+        <h1>Roulette</h1>
+        <div class="bet">
+            <p>На какое число вы хотите поставить?</p>
+            <div>
+                <button>0</button>
+                <button>1</button>
+                <button>3</button>
+                <button>5</button>
+                <button>7</button>
+                <button>9</button>
+                <button>12</button>
+                <button>14</button>
+                <button>16</button>
+                <button>18</button>
+                <button>19</button>
+                <button>21</button>
+                <button>23</button>
+                <button>25</button>
+                <button>27</button>
+                <button>30</button>
+                <button>32</button>
+                <button>34</button>
+                <button>36</button>
+                <button>2</button>
+                <button>4</button>
+                <button>6</button>
+                <button>8</button>
+                <button>10</button>
+                <button>11</button>
+                <button>13</button>
+                <button>15</button>
+                <button>17</button>
+                <button>20</button>
+                <button>22</button>
+                <button>24</button>
+                <button>26</button>
+                <button>28</button>
+                <button>29</button>
+                <button>31</button>
+                <button>33</button>
+                <button>35</button>
+            </div>
+            <p>Сколько вы хотите поставить?</p>
+            <input class="user-bet" type="text" placeholder="Your bet">
+        </div>
+        <div class="spin">
+            <div class="circle"></div>
+        </div>
+        <button class="play-button">Play</button>
+        <div class="check"></div>
     </div>
 </main>
 <footer>
@@ -68,6 +110,7 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script type="module" src="../script/navbar.js"></script>
+<script type="module" src="../script/roulette.js"></script>
 <script type="module" src="../script/global.js"></script>
 </body>
 </html>
