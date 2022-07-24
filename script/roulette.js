@@ -65,9 +65,6 @@ function getCheck(userInput, userBet){
     document.querySelector('.circle').style.transform = `rotate(${(randomNumbers.indexOf(randomNumber) * 9.73) + (360 * randomSpins * i)}deg) translateY(-125px)`;
 
     if(userInput === randomNumber && userBet <= getMoney() && !isNaN(userInput) && userBet >= 1){
-        const audio = new Audio();
-        audio.src = '../audio/win.mp3'
-        audio.autoplay = true;
         setTimeout(getTrueCheck, 3000, userBet);
     }else{
         setTimeout(getFalseCheck, 3000, randomNumber, userBet);
@@ -95,6 +92,10 @@ const getTrueCheck = (userBet) => {
     document.querySelector('.check').append(elem);
 
     moneyCalculation(userBet * 35);
+
+    const audio = new Audio();
+    audio.src = '../audio/win.mp3'
+    audio.autoplay = true;
 
     setTimeout(refreshCheck, 2000);
 }
